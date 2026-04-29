@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Agência Weedoo: Especialista em SEO técnico e inteligência de dados. Otimizamos sua presença digital com foco em performance e resultados científicos.">
-    <title>Exercício - Estética Weedoo</title>
+    <title>Weedoo - Ciber-Botânica</title>
 
     <style>
-        /* Reset básico para remover margens padrão do navegador */
+        /* Reset para um design limpo */
         * {
             margin: 0;
             padding: 0;
@@ -17,25 +17,33 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333d47;
-            /* Grafite sofisticado */
-            background-color: #f4f7f6;
-            /* Fundo clínico/claro */
+            font-family: 'Poppins', 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #f0f0f0;
+            /* Texto quase branco para fundo escuro */
+            /* Gradiente Surrealista: Púrpura Profundo -> Magenta Sintético -> Preto */
+            background: radial-gradient(circle at 10% 20%, rgb(42, 14, 74) 0%, rgb(18, 18, 18) 90%);
+            background-attachment: fixed;
+            overflow-x: hidden;
         }
 
-        /* Container para centralizar o conteúdo */
+        /* Container de Centralização Moderna */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
 
+        /* Cabeçalho Minimalista Moderno */
         header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            /* Efeito de vidro jateado */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         header .container {
@@ -44,78 +52,156 @@
             align-items: center;
         }
 
+        .logo strong {
+            font-size: 1.2em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            /* Texto com Gradiente Moderno */
+            background: linear-gradient(90deg, #00d4ff, #ff007f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin-left: 30px;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: #0056b3;
-            /* Azul profissional */
-            font-weight: 500;
+            color: #f0f0f0;
+            font-weight: 400;
+            font-size: 0.95em;
+            transition: 0.3s;
         }
 
+        /* Hover com o Azul Elétrico */
         nav ul li a:hover {
-            color: #003d7a;
-            text-decoration: underline;
+            color: #00d4ff;
+            text-shadow: 0 0 10px #00d4ff;
         }
 
+        /* Seção Principal (Hero) Surrealista */
         main {
-            padding: 60px 0;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        h1,
-        h2,
-        h3 {
-            color: #1a1a1a;
-            margin-bottom: 15px;
-        }
-
-        .hero {
+            padding: 100px 0;
             text-align: center;
-            /* Centraliza o texto do banner principal */
-            padding: 40px 0;
         }
 
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+
+        /* Detalhe Laranja Vibrante na Hero */
+        .hero p {
+            font-size: 1.2em;
+            color: #f0f0f0;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Botão CTA Laranja com Sombra Neon */
+        .btn-cta {
+            background-color: #ff6b00;
+            color: #ffffff;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+        }
+
+        .btn-cta:hover {
+            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.7);
+            transform: translateY(-2px);
+        }
+
+        /* Grid de Cards Moderno */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            text-align: left;
         }
 
+        /* Cards Surrealistas "Flutuantes" */
         article {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid #28a745;
-            /* Verde clínico para destaque */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
         }
 
+        /* Efeito de Hover: Borda de Neon Verde e Magenta */
+        article:hover {
+            transform: translateY(-5px);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            box-shadow: 0 10px 30px rgba(57, 255, 20, 0.1);
+        }
+
+        article h3 {
+            color: #00d4ff;
+            /* Azul Elétrico */
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        /* Toque Surrealista: Destaque Verde Neon no texto */
+        article p {
+            font-size: 1em;
+            color: #d0d0d0;
+        }
+
+        article::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #39ff14, #ff007f);
+            /* Verde -> Magenta */
+        }
+
+        /* Rodapé em Profundidade */
         footer {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            padding: 40px 0;
+            background-color: #0d0d0d;
+            color: #a0a0a0;
+            padding: 60px 0;
             text-align: center;
             font-size: 0.9em;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         footer a {
-            color: #28a745;
+            color: #ff007f;
+            /* Magenta */
             text-decoration: none;
             margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px #ff007f;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -123,13 +209,13 @@
     <header>
         <div class="container">
             <div class="logo">
-                <strong>AGÊNCIA WEEDOO</strong>
+                <strong>WEEDOO</strong>
             </div>
             <nav>
                 <ul>
                     <li><a href="#">Serviços</a></li>
                     <li><a href="#">SEO</a></li>
-                    <li><a href="#">Contato</a></li>
+                    <li><a href="#">Dados</a></li>
                 </ul>
             </nav>
         </div>
@@ -137,20 +223,20 @@
 
     <main class="container">
         <section class="hero">
-            <h1>Inteligência de Dados e SEO</h1>
-            <p>Abordagem científica para o crescimento do seu e-commerce.</p>
+            <h1>Ciber-Botânica & Inteligência</h1>
+            <p>Conectando dados orgânicos ao ciberespaço para performance técnica.</p>
+            <button class="btn-cta">Iniciar Otimização</button>
         </section>
 
         <section id="servicos">
-            <h2>Nossas Soluções</h2>
             <div class="card-grid">
                 <article>
-                    <h3>SEO Técnico</h3>
-                    <p>Otimização de infraestrutura e performance para Core Web Vitals.</p>
+                    <h3>Nexo de SEO Técnico</h3>
+                    <p>Alinhamento de infraestrutura para Core Web Vitals e renderização híbrida.</p>
                 </article>
                 <article>
-                    <h3>Data Intelligence</h3>
-                    <p>Transformação de dados em decisões estratégicas de negócio.</p>
+                    <h3>BI e Fluxo de Dados</h3>
+                    <p>Decisões baseadas na fusão de BI com aprendizado de máquina.</p>
                 </article>
             </div>
         </section>
@@ -158,8 +244,8 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Agência Weedoo - Todos os direitos reservados.</p>
-            <p>São Paulo, SP | <a href="#">LinkedIn</a> | <a href="#">Instagram</a></p>
+            <p>&copy; 2026 Agência Weedoo - Nexo Técnico de Performance.</p>
+            <p>São Paulo // <a href="#">LinkedIn</a> // <a href="#">Instagram</a></p>
         </div>
     </footer>
 
