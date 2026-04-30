@@ -156,6 +156,13 @@
             filter: brightness(1.1);
         }
 
+        /* Desabilitado durante o envio */
+        .btn-submit:disabled {
+            background: #555;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
         footer {
             text-align: center;
             padding: 30px 0;
@@ -184,7 +191,6 @@
         <div class="container">
             <div class="form-card">
                 <h1>Fale com a Weedoo!</h1>
-                <!-- Adicionado o ID meuFormulario -->
                 <form id="meuFormulario">
                     <div class="input-group">
                         <label for="nome">Nome Completo</label>
@@ -202,7 +208,6 @@
                             placeholder="Descreva seu projeto ou desafio técnico..."></textarea>
                     </div>
 
-                    <!-- Adicionado o ID btnEnviar -->
                     <button type="submit" class="btn-submit" id="btnEnviar">Enviar Mensagem</button>
                 </form>
             </div>
@@ -213,30 +218,40 @@
         <p>Agência Weedoo // Conexão via Dados.</p>
     </footer>
 
-    <!-- Script de Integração com Google Sheets -->
+    <!-- Lógica de Integração -->
     <script>
+        // URL da sua implantação do Google Apps Script
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwDamh1uwnEGCh6j0_MC71ZS9w0-g2GClW8u2eaiBDIMPGvPgAQPRtSMYFwCvH8-2GA/exec';
+        
         const form = document.getElementById('meuFormulario');
         const btn = document.getElementById('btnEnviar');
 
         form.addEventListener('submit', e => {
-            e.preventDefault(); // Impede o recarregamento da página
+            e.preventDefault(); // Evita o recarregamento padrão da página
+            
             btn.disabled = true;
-            btn.innerText = "Enviando...";
+            btn.innerText = "Enviando para o Nexo...";
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => {
-                    alert("Sucesso! O Nexo de dados da Weedoo recebeu sua mensagem.");
-                    form.reset();
-                    btn.disabled = false;
-                    btn.innerText = "Enviar Mensagem";
-                })
-                .catch(error => {
-                    console.error('Erro!', error.message);
-                    alert("Ops! Houve uma falha na conexão com o banco de dados.");
-                    btn.disabled = false;
-                    btn.innerText = "Enviar Mensagem";
-                });
+            // Captura os dados do formulário e envia via POST
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form),
+                mode: 'no-cors' // Necessário para evitar erros de CORS com Google Apps Script
+            })
+            .then(() => {
+                // Como usamos 'no-cors', o Google não retorna uma resposta legível por segurança, 
+                // mas se o fetch completa sem erro, os dados foram enviados.
+                alert("Sucesso! A Weedoo recebeu sua mensagem.");
+                form.reset();
+                btn.disabled = false;
+                btn.innerText = "Enviar Mensagem";
+            })
+            .catch(error => {
+                console.error('Erro de conexão!', error.message);
+                alert("Ops! Ocorreu um erro no tráfego de dados. Tente novamente.");
+                btn.disabled = false;
+                btn.innerText = "Enviar Mensagem";
+            });
         });
     </script>
 
