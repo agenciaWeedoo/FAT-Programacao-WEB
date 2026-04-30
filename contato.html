@@ -123,7 +123,6 @@
             outline: none;
         }
 
-        /* Efeito de Foco Neon */
         .input-group input:focus,
         .input-group textarea:focus {
             border-color: #ff007f;
@@ -156,11 +155,11 @@
             filter: brightness(1.1);
         }
 
-        /* Desabilitado durante o envio */
         .btn-submit:disabled {
-            background: #555;
+            background: #444;
             cursor: not-allowed;
             box-shadow: none;
+            transform: none;
         }
 
         footer {
@@ -218,37 +217,33 @@
         <p>Agência Weedoo // Conexão via Dados.</p>
     </footer>
 
-    <!-- Lógica de Integração -->
     <script>
-        // URL da sua implantação do Google Apps Script
+        // URL da sua nova implantação autorizada
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwDamh1uwnEGCh6j0_MC71ZS9w0-g2GClW8u2eaiBDIMPGvPgAQPRtSMYFwCvH8-2GA/exec';
         
         const form = document.getElementById('meuFormulario');
         const btn = document.getElementById('btnEnviar');
 
         form.addEventListener('submit', e => {
-            e.preventDefault(); // Evita o recarregamento padrão da página
+            e.preventDefault();
             
             btn.disabled = true;
-            btn.innerText = "Enviando para o Nexo...";
+            btn.innerText = "Processando Dados...";
 
-            // Captura os dados do formulário e envia via POST
             fetch(scriptURL, { 
                 method: 'POST', 
                 body: new FormData(form),
-                mode: 'no-cors' // Necessário para evitar erros de CORS com Google Apps Script
+                mode: 'no-cors' // Mantido para evitar bloqueios de segurança entre domínios
             })
             .then(() => {
-                // Como usamos 'no-cors', o Google não retorna uma resposta legível por segurança, 
-                // mas se o fetch completa sem erro, os dados foram enviados.
-                alert("Sucesso! A Weedoo recebeu sua mensagem.");
+                alert("Conexão estabelecida! A Weedoo recebeu sua mensagem.");
                 form.reset();
                 btn.disabled = false;
                 btn.innerText = "Enviar Mensagem";
             })
             .catch(error => {
-                console.error('Erro de conexão!', error.message);
-                alert("Ops! Ocorreu um erro no tráfego de dados. Tente novamente.");
+                console.error('Falha no nexo!', error.message);
+                alert("Ocorreu um erro no tráfego. Verifique sua conexão.");
                 btn.disabled = false;
                 btn.innerText = "Enviar Mensagem";
             });
