@@ -184,7 +184,8 @@
         <div class="container">
             <div class="form-card">
                 <h1>Fale com a Weedoo!</h1>
-                <form action="#" method="POST">
+                <!-- Adicionado o ID meuFormulario -->
+                <form id="meuFormulario">
                     <div class="input-group">
                         <label for="nome">Nome Completo</label>
                         <input type="text" id="nome" name="nome" placeholder="Como devemos te chamar?" required>
@@ -201,7 +202,8 @@
                             placeholder="Descreva seu projeto ou desafio técnico..."></textarea>
                     </div>
 
-                    <button type="submit" class="btn-submit">Enviar Mensagem</button>
+                    <!-- Adicionado o ID btnEnviar -->
+                    <button type="submit" class="btn-submit" id="btnEnviar">Enviar Mensagem</button>
                 </form>
             </div>
         </div>
@@ -210,6 +212,33 @@
     <footer>
         <p>Agência Weedoo // Conexão via Dados.</p>
     </footer>
+
+    <!-- Script de Integração com Google Sheets -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwDamh1uwnEGCh6j0_MC71ZS9w0-g2GClW8u2eaiBDIMPGvPgAQPRtSMYFwCvH8-2GA/exec';
+        const form = document.getElementById('meuFormulario');
+        const btn = document.getElementById('btnEnviar');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault(); // Impede o recarregamento da página
+            btn.disabled = true;
+            btn.innerText = "Enviando...";
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    alert("Sucesso! O Nexo de dados da Weedoo recebeu sua mensagem.");
+                    form.reset();
+                    btn.disabled = false;
+                    btn.innerText = "Enviar Mensagem";
+                })
+                .catch(error => {
+                    console.error('Erro!', error.message);
+                    alert("Ops! Houve uma falha na conexão com o banco de dados.");
+                    btn.disabled = false;
+                    btn.innerText = "Enviar Mensagem";
+                });
+        });
+    </script>
 
 </body>
 
