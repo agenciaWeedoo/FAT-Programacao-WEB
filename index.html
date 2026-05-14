@@ -6,202 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Agência Weedoo: Especialista em SEO técnico e inteligência de dados. Otimizamos sua presença digital com foco em performance e resultados científicos.">
-    <title>Weedoo - Ciber-Botânica</title>
-
-    <style>
-        /* Reset para um design limpo */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.8;
-            color: #f0f0f0;
-            /* Texto quase branco para fundo escuro */
-            /* Gradiente Surrealista: Púrpura Profundo -> Magenta Sintético -> Preto */
-            background: radial-gradient(circle at 10% 20%, rgb(105, 69, 147) 0%, rgb(162, 146, 125) 90%);
-            background-attachment: fixed;
-            overflow-x: hidden;
-        }
-
-        /* Container de Centralização Moderna */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        /* Cabeçalho Minimalista Moderno */
-        header {
-            background-color: rgba(18, 18, 18, 0.8);
-            backdrop-filter: blur(10px);
-            /* Efeito de vidro jateado */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo strong {
-            font-size: 1.2em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            /* Texto com Gradiente Moderno */
-            background: linear-gradient(90deg, #00d4ff, #ff007f);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #f0f0f0;
-            font-weight: 400;
-            font-size: 0.95em;
-            transition: 0.3s;
-        }
-
-        /* Hover com o Azul Elétrico */
-        nav ul li a:hover {
-            color: #00d4ff;
-            text-shadow: 0 0 10px #00d4ff;
-        }
-
-        /* Seção Principal (Hero) Surrealista */
-        main {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3.5em;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: #ffffff;
-            line-height: 1.1;
-        }
-
-        /* Detalhe Laranja Vibrante na Hero */
-        .hero p {
-            font-size: 1.2em;
-            color: #f0f0f0;
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-        }
-
-        /* Botão CTA Laranja com Sombra Neon */
-        .btn-cta {
-            background-color: #ff6b00;
-            color: #ffffff;
-            padding: 15px 35px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1em;
-            font-weight: 600;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
-        }
-
-        .btn-cta:hover {
-            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.7);
-            transform: translateY(-2px);
-        }
-
-        /* Grid de Cards Moderno */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-            text-align: left;
-        }
-
-        /* Cards Surrealistas "Flutuantes" */
-        article {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 35px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Efeito de Hover: Borda de Neon Verde e Magenta */
-        article:hover {
-            transform: translateY(-5px);
-            border: 1px solid rgba(57, 255, 20, 0.3);
-            box-shadow: 0 10px 30px rgba(57, 255, 20, 0.1);
-        }
-
-        article h3 {
-            color: #00d4ff;
-            /* Azul Elétrico */
-            margin-bottom: 15px;
-            font-size: 1.4em;
-        }
-
-        /* Toque Surrealista: Destaque Verde Neon no texto */
-        article p {
-            font-size: 1em;
-            color: #d0d0d0;
-        }
-
-        article::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #39ff14, #ff007f);
-            /* Verde -> Magenta */
-        }
-
-        /* Rodapé em Profundidade */
-        footer {
-            background-color: #0d0d0d;
-            color: #a0a0a0;
-            padding: 60px 0;
-            text-align: center;
-            font-size: 0.9em;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        footer a {
-            color: #ff007f;
-            /* Magenta */
-            text-decoration: none;
-            margin: 0 10px;
-            transition: 0.3s;
-        }
-
-        footer a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 10px #ff007f;
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Agência Weedoo - Ciber-Botânica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -209,7 +18,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <strong>WEEDOO</strong>
+                <strong>AGÊNCIA WEEDOO</strong>
             </div>
             <nav>
                 <ul>
@@ -223,13 +32,27 @@
 
     <main class="container">
         <section class="hero">
-            <h1>Ciber-Botânica & Inteligência</h1>
-            <p>Conectando dados orgânicos ao ciberespaço para performance técnica.</p>
-            <button class="btn-cta">Teste seu Site Aqui!</button>
+            <h1>Marketing Médico e SEO para Clínicas Agência Weedoo</h1>
+            <p class="texto-medio">Soluções de Marketing Digital Especializadas para a Área da Saúde</p>
+            <p class="texto-grande">Elevando a visibilidade da Cannabis Medicinal com precisão técnica e inteligência de
+                dados.</p>
+            <p class="texto-pequeno">Transformamos o código do seu e-commerce em autoridade digital.</p>
+            <p class="texto-pequeno">Com 6 anos de experiência e DNA em desenvolvimento, a Weedoo Soluções coloca seu
+                negócio no topo dos motores de busca onde as estratégias comuns não alcançam.</p><br>
+            <button class="btn-cta">Entre em contato com a gente!</button>
         </section>
 
-        <section id="servicos">
+        <section id="servicos"><br>
+            <h1>Marketing Médico e SEO para Clínicas Agência Weedoo</h1>
             <div class="card-grid">
+                <article>
+                    <h3>SEO Técnico</h3>
+                    <p>Alinhamento de infraestrutura para Core Web Vitals e renderização híbrida.</p>
+                </article>
+                <article>
+                    <h3>SEO Técnico</h3>
+                    <p>Alinhamento de infraestrutura para Core Web Vitals e renderização híbrida.</p>
+                </article>
                 <article>
                     <h3>SEO Técnico</h3>
                     <p>Alinhamento de infraestrutura para Core Web Vitals e renderização híbrida.</p>

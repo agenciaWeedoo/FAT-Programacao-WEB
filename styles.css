@@ -1,0 +1,213 @@
+/* Reset para um design limpo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Syne', sans-serif;
+    line-height: 2.8;
+    color: #e7d8c1;
+    /* Texto quase branco para fundo escuro */
+    /* Gradiente Surrealista: Púrpura Profundo -> Magenta Sintético -> Preto */
+    background: radial-gradient(circle at 10% 20%, rgb(23, 44, 41) 0%, rgb(29, 50, 44) 90%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* Container de Centralização Moderna */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* Cabeçalho Minimalista Moderno */
+header {
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    /* Efeito de vidro jateado */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo strong {
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* Texto com Gradiente Moderno */
+    background: linear-gradient(90deg, #00fef6a9, #7847c7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #b2e7c7;
+    font-weight: 400;
+    font-size: 0.95em;
+    transition: 0.3s;
+}
+
+/* Hover com o Azul Elétrico */
+nav ul li a:hover {
+    color: #fffb00;
+    text-shadow: 0 0 10px #fffb00;
+}
+
+/* Seção Principal (Hero) Surrealista */
+main {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #ecf5b4;
+    line-height: 1.8;
+}
+
+/* Detalhe Laranja Vibrante na Hero */
+.hero p {
+    font-size: 1.2em;
+    color: #f5f5c6;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+p.texto-grande {
+    font-size: 1.5em;
+    color: #f5f5c6;
+    /* Laranja Vibrante */
+    margin-bottom: 20px;
+}
+
+p.texto-medio {
+    font-size: 1.3em;
+    color: #f5f5c6;
+    /* Laranja Vibrante */
+    margin-bottom: 20px;
+}
+
+p.texto-pequeno {
+    font-size: 1.0em;
+    color: #f5f5c6;
+    margin-bottom: 20px;
+    background-size: contain;
+    background-color: #52525262;
+}
+
+/* Botão CTA Laranja com Sombra Neon */
+.btn-cta {
+    background-color: #9f4607;
+    color: #faece3;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+}
+
+.btn-cta:hover {
+    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.7);
+    transform: translateY(-2px);
+}
+
+/* Grid de Cards Moderno */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+    text-align: left;
+}
+
+/* Cards Surrealistas "Flutuantes" */
+article {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 35px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de Hover: Borda de Neon Verde e Magenta */
+article:hover {
+    transform: translateY(-5px);
+    border: 1px solid rgba(235, 255, 20, 0.3);
+    box-shadow: 0 10px 30px rgba(75, 251, 44, 0.1);
+}
+
+article h3 {
+    color: #ffd41491;
+    /* Azul Elétrico */
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+/* Toque Surrealista: Destaque Verde Neon no texto */
+article p {
+    font-size: 1em;
+    color: #d0d0d0;
+}
+
+article::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #39ff14, #ff007f);
+    /* Verde -> Magenta */
+}
+
+/* Rodapé em Profundidade */
+footer {
+    background-color: #0d0d0d;
+    color: #a0a0a0;
+    padding: 60px 0;
+    text-align: center;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer a {
+    color: #ff007f;
+    /* Magenta */
+    text-decoration: none;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #ff007f;
+}
