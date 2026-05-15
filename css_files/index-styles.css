@@ -442,3 +442,31 @@ footer a:hover {
         width: auto;        /* O pulo do gato: desfaz o '100%' para a margem funcionar sem criar barra de rolagem lateral */
     }
 }
+
+/* --- LAYOUT DA GRADE DE SERVIÇOS (2x2) --- */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Cria 2 colunas de larguras iguais */
+    gap: 40px; /* Espaço entre os cards (ajuste conforme preferir) */
+    align-items: stretch; /* Garante que os cards na mesma linha tenham a mesma altura */
+    margin-top: 40px;
+}
+
+/* Estilização base do card para manter o visual limpo dentro da grade */
+.services-grid article {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(66, 132, 21, 0.3);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo do card de cima para baixo */
+}
+
+/* Responsividade: Transforma a grade em 1 coluna (1x4) em telas de celular */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+}
