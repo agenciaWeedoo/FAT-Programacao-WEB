@@ -1,0 +1,444 @@
+/* Reset para um design limpo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif; /* Fonte ultra-legível para o texto */
+    font-weight: 400;
+    line-height: 1.8; /* Diminuído ligeiramente de 2.8 para alinhar com o padrão Data Tech */
+    color: #e7d8c1;
+    background: radial-gradient(circle at 10% 20%, rgb(23, 44, 41) 0%, rgb(29, 50, 44) 90%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* Forçando os títulos a usarem a estética tech/geométrica */
+h1, h2, h3, .logo strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; /* Peso marcante para os títulos */
+}
+
+/* Container de Centralização Moderna */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* Cabeçalho Minimalista Moderno */
+header {
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    /* Efeito de vidro jateado */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.2em;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* Texto com Gradiente Moderno */
+    background: linear-gradient(90deg, #11e19cef, #11e19cef);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;         /* Propriedade padrão para compatibilidade total */
+    color: transparent;            /* Geralmente usado junto para mostrar o gradiente atrás */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #b2e7c7;
+    font-weight: 400;
+    font-size: 0.95em;
+    transition: 0.3s;
+}
+
+/* Hover com o Azul Elétrico */
+nav ul li a:hover {
+    color: #fffb00;
+    text-shadow: 0 0 10px #fffb00;
+}
+
+/* Seção Principal (Hero) Surrealista */
+main {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #ecf5b4;
+    line-height: 1.8;
+}
+
+/* Detalhe Laranja Vibrante na Hero */
+.hero p {
+    font-size: 1.2em;
+    color: #f5f5c6;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+p.texto-grande {
+    font-size: 1.5em;
+    color: #f5f5c6;
+    /* Laranja Vibrante */
+    margin-bottom: 20px;
+}
+
+p.texto-medio {
+    font-size: 1.3em;
+    color: #f5f5c6;
+    /* Laranja Vibrante */
+    margin-bottom: 20px;
+}
+
+p.texto-pequeno {
+    font-size: 1.1em;
+    color: #f5f5c6;
+    margin-bottom: 20px;
+    background-size: contain;
+    background-color: #52525262;
+}
+
+/* Botão CTA Laranja com Sombra Neon */
+.btn-cta {
+    background-color: #9f4607;
+    color: #faece3;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+}
+
+.btn-cta:hover {
+    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.7);
+    transform: translateY(-2px);
+}
+
+/* Grid de Cards Moderno */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+    text-align: left;
+    /* Garante que o grid em si esteja centralizado */
+    justify-content: center; 
+    max-width: 900px; /* Opcional: limita a largura para os cards não ficarem esticados demais */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Quando a tela for menor que 768px (celulares) */
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr; /* Volta para 1 card por linha */
+        max-width: 100%;
+    }
+}
+
+/* Cards Surrealistas "Flutuantes" */
+article {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 35px;
+    border-radius: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+/* Saiba Mais*/
+span a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #37ff145c;
+}
+span a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 250, 154, 0.15);
+    background-color: rgba(255, 255, 255, 0.03); /* Leve clareada no fundo do card */
+    color: #37ff145c;
+    border: 1px solid rgba(55, 255, 20, 0.1);    /* Borda quase invisível */
+    backdrop-filter: blur(5px);
+    border-radius: 6px;
+}
+/* Efeito de Hover: Borda de Neon Verde e Magenta */
+article:hover {
+    transform: translateY(-5px);
+    border: 1px solid rgba(235, 255, 20, 0.3);
+    box-shadow: 0 10px 30px rgba(75, 251, 44, 0.1);
+}
+
+article h3 {
+    color: #ffd41491;
+    /* Azul Elétrico */
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+/* Toque Surrealista: Destaque Verde Neon no texto */
+article p {
+    font-size: 1em;
+    color: #d0d0d0;
+    word-wrap: break-word;
+}
+
+article::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #39ff14, #ff007f);
+    /* Verde -> Magenta */
+}
+
+/* ===================================================
+   1. SEÇÃO: POS-CARDS (Estratégias de Marketing CFM)
+   =================================================== */
+
+   .pos-cards {
+    overflow: hidden; /* Mantém os fundos cortados caso use border-radius */
+    margin-top: 30px;
+}
+
+/* Espaçamento padrão para as linhas da seção pós-cards */
+.pos-cards div {
+    padding: 18px 25px;
+}
+
+.pos-cards div span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: #37ff1446; /* O verde aplicando o contraste total */
+    letter-spacing: 0.5px;
+}
+
+/* Cores personalizadas para cada uma das 4 linhas */
+.pos-cards div:nth-child(1) {
+    background-color: rgba(255, 255, 255, 0.02); /* Fundo quase invisível para o título */
+}
+
+.pos-cards div:nth-child(2) {
+    background-color: rgba(55, 255, 20, 0.04);   /* Verde neon bem sutil */
+}
+
+.pos-cards div:nth-child(3) {
+    background-color: rgba(0, 0, 0, 0.15);         /* Preto translúcido */
+}
+
+.pos-cards div:nth-child(4) {
+    background-color: rgba(159, 70, 7, 0.08);     /* Toque sutil do laranja do CTA */
+}
+
+
+/* ===================================================
+   2. SEÇÃO: SOBRE-WEEDOO (Institucional)
+   =================================================== */
+
+.sobre-weedoo p {
+    overflow: hidden;
+    margin-top: 30px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 800;
+    font-size: large;
+}
+
+/* Espaçamento padrão para as linhas do Sobre Nós */
+.sobre-weedoo div {
+    padding: 20px 25px;
+}
+
+/* Cores personalizadas para cada uma das 5 linhas */
+.sobre-weedoo div:nth-child(1) {
+    background-color: rgba(120, 71, 199, 0.08);  /* Um toque do roxo da sua logo */
+}
+
+.sobre-weedoo div:nth-child(2) {
+    background-color: rgba(255, 255, 255, 0.03);  /* Cinza bem suave */
+}
+
+.sobre-weedoo div:nth-child(3) {
+    background-color: rgba(0, 0, 0, 0.2);          /* Fundo escuro para contraste */
+}
+
+.sobre-weedoo div:nth-child(4) {
+    background-color: rgba(55, 255, 20, 0.03);   /* Verde ciber-botânico de leve */
+}
+
+.sobre-weedoo div:nth-child(5) {
+    background-color: rgba(0, 0, 0, 0.1);          /* Fechamento mais escuro */
+}
+
+/* Estilização do background da caixa 'Mantenha-se Conectado*'*/
+/* Estilização do container pai */
+.chamada-conexao {
+    background-color: #0f3200a7;
+    border: solid rgba(66, 132, 21, 0.483);
+    border-radius: 8px;
+    overflow: hidden; /* IMPORTANTE: Garante que o fundo das linhas não "vaze" pelas pontas arredondadas */
+}
+
+/* Estilo comum para todas as divs internas (para dar um respiro) */
+.chamada-conexao div {
+    padding: 15px 20px;
+}
+
+/* Cores diferentes para cada linha */
+.chamada-conexao div:nth-child(1) {
+    background-color: rgba(55, 255, 20, 0.037); /* Verde Neon sutil */
+}
+
+.chamada-conexao div:nth-child(2) {
+    background-color: rgba(0, 0, 0, 0.2);      /* Preto translúcido */
+}
+
+.chamada-conexao div:nth-child(3) {
+    background-color: rgba(120, 71, 199, 0.1); /* Púrpura (seguindo sua logo) */
+}
+
+.chamada-conexao div:nth-child(4) {
+    background-color: rgba(55, 255, 20, 0.037); /* Cinza quase invisível */
+}
+
+/* Container Geral do FAQ */
+.faq-secao {
+    margin-top: 60px;
+    text-align: left;
+}
+
+.faq-secao h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ecf5b4;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Estilização de cada bloco de pergunta */
+.faq-container details {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(66, 132, 21, 0.3);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+/* O título da pergunta (clicável) */
+.faq-container summary {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: #e7d8c1;
+    cursor: pointer;
+    list-style: none; /* Remove a seta padrão no Chrome/Firefox */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Remove a seta padrão no Safari */
+.faq-container summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Pequeno sinal de "+" estilizado usando pseudo-elemento */
+.faq-container summary::after {
+    content: '+';
+    color: #37ff145c; /* Seu verde neon translúcido */
+    font-size: 1.4em;
+    transition: transform 0.3s ease;
+}
+
+/* --- COMPORTAMENTO QUANDO ABERTO --- */
+
+/* Quando o card está aberto, muda a borda e o brilho */
+.faq-container details[open] {
+    border-color: rgba(55, 255, 20, 0.6);
+    box-shadow: 0 0 15px rgba(55, 255, 20, 0.05);
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Gira o sinal de "+" para virar um "x" quando aberto */
+.faq-container details[open] summary::after {
+    transform: rotate(45deg);
+    color: #37ff14; /* Verde neon total quando ativo */
+}
+
+/* Estilo do texto da resposta */
+.faq-container p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-top: 15px;
+    color: #d0d0d0;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+/* Rodapé em Profundidade */
+footer {
+    background-color: #0d0d0d;
+    color: #a0a0a0;
+    padding: 60px 0;
+    text-align: center;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer a {
+    color: #4c00ff;
+    /* Magenta */
+    text-decoration: none;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #ff007f;
+}
+
+/* Ajuste de responsividade para telas de até 768px (Celulares e Tablets) */
+@media (max-width: 768px) {
+    .chamada-conexao {
+        margin-left: 20px;  /* Afasta da margem esquerda */
+        margin-right: 20px; /* Afasta da margem direita */
+        width: auto;        /* O pulo do gato: desfaz o '100%' para a margem funcionar sem criar barra de rolagem lateral */
+    }
+}
