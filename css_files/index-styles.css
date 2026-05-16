@@ -14,6 +14,8 @@ body {
     background: radial-gradient(circle at 10% 20%, rgb(23, 44, 41) 0%, rgb(29, 50, 44) 90%);
     background-attachment: fixed;
     overflow-x: hidden;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 /* Forçando os títulos a usarem a estética tech/geométrica */
@@ -147,16 +149,17 @@ p.texto-pequeno {
     transform: translateY(-2px);
 }
 
-/* Grid de Cards Moderno */
-.card-grid {
+/* ==========================================================================
+   GRID DE CARDS MODERNOS (Layout 2x2)
+   ========================================================================== */
+   .card-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     margin-top: 60px;
     text-align: left;
-    /* Garante que o grid em si esteja centralizado */
     justify-content: center; 
-    max-width: 900px; /* Opcional: limita a largura para os cards não ficarem esticados demais */
+    max-width: 900px; 
     margin-left: auto;
     margin-right: auto;
 }
@@ -169,8 +172,10 @@ p.texto-pequeno {
     }
 }
 
-/* Cards Surrealistas "Flutuantes" */
-article {
+/* ==========================================================================
+   CARDS SURREALISTAS "FLUTUANTES"
+   ========================================================================== */
+.card-servico {
     background: rgba(255, 255, 255, 0.03);
     padding: 35px;
     border-radius: 35px;
@@ -178,53 +183,81 @@ article {
     transition: 0.4s;
     position: relative;
     overflow: hidden;
-    height: 100%;
+    
+    /* Ativa o Flexbox para empurrar o botão para o rodapé do card */
+    display: flex;
+    flex-direction: column;
 }
-/* Saiba Mais*/
-span a {
-    cursor: pointer;
-    text-decoration: none;
-    color: #37ff145c;
-}
-span a:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px rgba(0, 250, 154, 0.15);
-    background-color: rgba(255, 255, 255, 0.03); /* Leve clareada no fundo do card */
-    color: #37ff145c;
-    border: 1px solid rgba(55, 255, 20, 0.1);    /* Borda quase invisível */
-    backdrop-filter: blur(5px);
-    border-radius: 6px;
-}
+
 /* Efeito de Hover: Borda de Neon Verde e Magenta */
-article:hover {
+.card-servico:hover {
     transform: translateY(-5px);
     border: 1px solid rgba(235, 255, 20, 0.3);
     box-shadow: 0 10px 30px rgba(75, 251, 44, 0.1);
 }
 
-article h3 {
-    color: #ffd41491;
-    /* Azul Elétrico */
+.card-servico h3 {
+    color: #ffd41491; /* Destaque original */
     margin-bottom: 15px;
     font-size: 1.4em;
 }
 
-/* Toque Surrealista: Destaque Verde Neon no texto */
-article p {
+/* Espaçamento consistente para os parágrafos sem precisar de <br> */
+.card-servico p {
     font-size: 1em;
     color: #d0d0d0;
     word-wrap: break-word;
+    margin-bottom: 15px;
+    line-height: 1.6;
 }
 
-article::after {
+/* Efeito de linha neon na base do card */
+.card-servico::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, #39ff14, #ff007f);
-    /* Verde -> Magenta */
+    background: linear-gradient(90deg, #39ff14, #ff007f); /* Verde -> Magenta */
+}
+
+/* ==========================================================================
+   CONTROLE E AJUSTE DAS IMAGENS DOS CARDS
+   ========================================================================== */
+.img-card {
+    width: 100%;
+    height: 200px;       /* Mantém uma altura padrão e simétrica para as imagens */
+    object-fit: cover;   /* Recorta e adapta a imagem perfeitamente sem amassar */
+    border-radius: 16px; /* Cantos arredondados harmonizando com o card */
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   BOTÃO SAIBA MAIS
+   ========================================================================== */
+.botao-saiba-mais {
+    cursor: pointer;
+    text-decoration: none; /* Remove o sublinhado/underline padrão */
+    color: #37ff145c;
+    display: inline-block;
+    transition: 0.3s;
+    
+    /* O Pulo do Gato: Empurra o botão magneticamente para a base do card,
+       alinhando horizontalmente todos os botões da mesma linha */
+    margin-top: auto; 
+    padding: 8px 12px;
+    width: fit-content;
+}
+
+.botao-saiba-mais:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(0, 250, 154, 0.15);
+    background-color: rgba(255, 255, 255, 0.03); 
+    color: #37ff14; /* Destaca o verde no hover */
+    border: 1px solid rgba(55, 255, 20, 0.2);   
+    backdrop-filter: blur(5px);
+    border-radius: 6px;
 }
 
 /* ===================================================
