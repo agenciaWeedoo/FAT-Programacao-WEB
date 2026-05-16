@@ -54,6 +54,7 @@ header .container {
     font-weight: 800;
     letter-spacing: 2px;
     text-transform: uppercase;
+    text-decoration: none;
     /* Texto com Gradiente Moderno */
     background: linear-gradient(90deg, #11e19cef, #11e19cef);
     -webkit-background-clip: text;
