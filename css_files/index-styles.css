@@ -239,7 +239,10 @@ p.texto-pequeno {
 .botao-saiba-mais {
     cursor: pointer;
     text-decoration: none; /* Remove o sublinhado/underline padrão */
-    color: #37ff145c;
+    color: #9afb898c;
+    background-color: #8f770ae5;
+    border-radius: 8px;
+    border: inset rgba(255, 132, 0, 0.812) 3px;
     display: inline-block;
     transition: 0.3s;
     
@@ -476,24 +479,18 @@ footer a:hover {
     }
 }
 
-/* --- LAYOUT DA GRADE DE SERVIÇOS (2x2) --- */
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Cria 2 colunas de larguras iguais */
-    gap: 40px; /* Espaço entre os cards (ajuste conforme preferir) */
-    align-items: stretch; /* Garante que os cards na mesma linha tenham a mesma altura */
-    margin-top: 40px;
-}
-
-/* Estilização base do card para manter o visual limpo dentro da grade */
-.services-grid article {
-    background-color: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(66, 132, 21, 0.3);
+/* ==========================================================================
+   CONTROLE DAS IMAGENS DOS CARDS (REGRA BLINDADA)
+   ========================================================================== */
+   .services-grid .card-servico .img-card {
+    width: 100%;
+    max-width: 100%;   /* Trava o vazamento horizontal */
+    /* height: 220px;     Fixa a altura */
+    object-fit: cover; /* Corta sem amassar */
+    display: flex;    /* Comportamento seguro em flexbox */
     border-radius: 12px;
-    padding: 30px;
-    display: flex;
-    flex-direction: column; /* Organiza o conteúdo do card de cima para baixo */
+    margin-bottom: 20px;
+    margin-top: 15px;
 }
 
 /* Responsividade: Transforma a grade em 1 coluna (1x4) em telas de celular */
