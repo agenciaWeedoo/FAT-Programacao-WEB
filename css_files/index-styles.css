@@ -7,9 +7,11 @@
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif; /* Fonte ultra-legível para o texto */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    /* Fonte ultra-legível para o texto */
     font-weight: 400;
-    line-height: 1.8; /* Diminuído ligeiramente de 2.8 para alinhar com o padrão Data Tech */
+    line-height: 1.8;
+    /* Diminuído ligeiramente de 2.8 para alinhar com o padrão Data Tech */
     color: #e7d8c1;
     background: radial-gradient(circle at 10% 20%, rgb(23, 44, 41) 0%, rgb(29, 50, 44) 90%);
     background-attachment: fixed;
@@ -19,9 +21,13 @@ body {
 }
 
 /* Forçando os títulos a usarem a estética tech/geométrica */
-h1, h2, h3, .logo strong {
+h1,
+h2,
+h3,
+.logo strong {
     font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700; /* Peso marcante para os títulos */
+    font-weight: 700;
+    /* Peso marcante para os títulos */
 }
 
 /* Container de Centralização Moderna */
@@ -59,8 +65,10 @@ header .container {
     background: linear-gradient(90deg, #11e19cef, #11e19cef);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;         /* Propriedade padrão para compatibilidade total */
-    color: transparent;            /* Geralmente usado junto para mostrar o gradiente atrás */
+    background-clip: text;
+    /* Propriedade padrão para compatibilidade total */
+    color: transparent;
+    /* Geralmente usado junto para mostrar o gradiente atrás */
 }
 
 nav ul {
@@ -153,14 +161,14 @@ p.texto-pequeno {
 /* ==========================================================================
    GRID DE CARDS MODERNOS (Layout 2x2)
    ========================================================================== */
-   .card-grid {
+.card-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     margin-top: 60px;
     text-align: left;
-    justify-content: center; 
-    max-width: 900px; 
+    justify-content: center;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -168,7 +176,8 @@ p.texto-pequeno {
 /* Quando a tela for menor que 768px (celulares) */
 @media (max-width: 768px) {
     .card-grid {
-        grid-template-columns: 1fr; /* Volta para 1 card por linha */
+        grid-template-columns: 1fr;
+        /* Volta para 1 card por linha */
         max-width: 100%;
     }
 }
@@ -184,7 +193,7 @@ p.texto-pequeno {
     transition: 0.4s;
     position: relative;
     overflow: hidden;
-    
+
     /* Ativa o Flexbox para empurrar o botão para o rodapé do card */
     display: flex;
     flex-direction: column;
@@ -198,7 +207,8 @@ p.texto-pequeno {
 }
 
 .card-servico h3 {
-    color: #ffd41491; /* Destaque original */
+    color: #ffd41491;
+    /* Destaque original */
     margin-bottom: 15px;
     font-size: 1.4em;
 }
@@ -220,7 +230,8 @@ p.texto-pequeno {
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, #39ff14, #ff007f); /* Verde -> Magenta */
+    background: linear-gradient(90deg, #39ff14, #ff007f);
+    /* Verde -> Magenta */
 }
 
 /* ==========================================================================
@@ -228,9 +239,12 @@ p.texto-pequeno {
    ========================================================================== */
 .img-card {
     width: 100%;
-    height: 200px;       /* Mantém uma altura padrão e simétrica para as imagens */
-    object-fit: cover;   /* Recorta e adapta a imagem perfeitamente sem amassar */
-    border-radius: 16px; /* Cantos arredondados harmonizando com o card */
+    height: 200px;
+    /* Mantém uma altura padrão e simétrica para as imagens */
+    object-fit: cover;
+    /* Recorta e adapta a imagem perfeitamente sem amassar */
+    border-radius: 16px;
+    /* Cantos arredondados harmonizando com o card */
     margin-bottom: 20px;
 }
 
@@ -239,17 +253,18 @@ p.texto-pequeno {
    ========================================================================== */
 .botao-saiba-mais {
     cursor: pointer;
-    text-decoration: none; /* Remove o sublinhado/underline padrão */
+    text-decoration: none;
+    /* Remove o sublinhado/underline padrão */
     color: #9afb898c;
     background-color: #8f770ae5;
     border-radius: 8px;
     border: inset rgba(255, 132, 0, 0.812) 3px;
     display: inline-block;
     transition: 0.3s;
-    
+
     /* O Pulo do Gato: Empurra o botão magneticamente para a base do card,
        alinhando horizontalmente todos os botões da mesma linha */
-    margin-top: auto; 
+    margin-top: auto;
     padding: 8px 12px;
     width: fit-content;
 }
@@ -257,119 +272,111 @@ p.texto-pequeno {
 .botao-saiba-mais:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 15px rgba(0, 250, 154, 0.15);
-    background-color: rgba(255, 255, 255, 0.03); 
-    color: #37ff14; /* Destaca o verde no hover */
-    border: 1px solid rgba(55, 255, 20, 0.2);   
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #37ff14;
+    /* Destaca o verde no hover */
+    border: 1px solid rgba(55, 255, 20, 0.2);
     backdrop-filter: blur(5px);
     border-radius: 6px;
 }
 
 /* ===================================================
-   1. SEÇÃO: POS-CARDS (Estratégias de Marketing CFM)
+   ATUALIZAÇÃO: BLOCOS DE INFORMAÇÃO (Design Vidro & Neon)
    =================================================== */
-
-   .pos-cards {
-    overflow: hidden; /* Mantém os fundos cortados caso use border-radius */
-    margin-top: 30px;
+.pos-cards,
+.sobre-weedoo,
+.chamada-conexao {
+    margin: 60px auto;
+    background: rgba(0, 0, 0, 0.4);
+    /* Fundo escuro translúcido */
+    border-radius: 24px;
+    padding: 40px 50px;
+    color: #e7d8c1;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 900px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Espaçamento padrão para as linhas da seção pós-cards */
-.pos-cards div {
-    padding: 18px 25px;
+/* Efeito Hover unificado para os três blocos */
+.pos-cards:hover,
+.sobre-weedoo:hover,
+.chamada-conexao:hover {
+    transform: translateY(-5px);
+    border: 1px solid rgba(55, 255, 20, 0.2);
+    box-shadow: 0 15px 40px rgba(55, 255, 20, 0.1);
 }
 
-.pos-cards div span {
+/* Títulos dentro das seções */
+.pos-cards h2,
+.sobre-weedoo h3,
+.chamada-conexao div:first-child p {
     font-family: 'Space Grotesk', sans-serif;
+    color: #fff;
+    margin-bottom: 25px;
+    margin-top: 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+    font-size: 1.8em;
+}
+
+/* Destaque especial para o título da Chamada de Conexão */
+.chamada-conexao div:first-child p {
+    color: #37ff14;
+    /* Verde neon */
+    letter-spacing: 1px;
+}
+
+/* Estilo das linhas internas (remoção das listras antigas) */
+.pos-cards div:not(:first-child),
+.sobre-weedoo div:not(:first-child),
+.chamada-conexao div:not(:first-child) {
+    padding: 15px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: #d0d0d0;
+}
+
+/* Remove a borda pontilhada do último item */
+.pos-cards div:last-child,
+.sobre-weedoo div:last-child,
+.chamada-conexao div:last-child {
+    border-bottom: none;
+}
+
+/* Destaques em Verde Neon no bloco Pos-Cards */
+.pos-cards div span {
+    color: #37ff14;
     font-weight: 600;
-    color: #37ff1446; /* O verde aplicando o contraste total */
     letter-spacing: 0.5px;
 }
 
-/* Cores personalizadas para cada uma das 4 linhas */
-.pos-cards div:nth-child(1) {
-    background-color: rgba(255, 255, 255, 0.02); /* Fundo quase invisível para o título */
-}
-
-.pos-cards div:nth-child(2) {
-    background-color: rgba(55, 255, 20, 0.04);   /* Verde neon bem sutil */
-}
-
-.pos-cards div:nth-child(3) {
-    background-color: rgba(0, 0, 0, 0.15);         /* Preto translúcido */
-}
-
-.pos-cards div:nth-child(4) {
-    background-color: rgba(159, 70, 7, 0.08);     /* Toque sutil do laranja do CTA */
-}
-
-
-/* ===================================================
-   2. SEÇÃO: SOBRE-WEEDOO (Institucional)
-   =================================================== */
-
+/* Correção da fonte do bloco Sobre Weedoo */
 .sobre-weedoo p {
-    overflow: hidden;
-    margin-top: 30px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: 800;
-    font-size: large;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0;
 }
 
-/* Espaçamento padrão para as linhas do Sobre Nós */
-.sobre-weedoo div {
-    padding: 20px 25px;
-}
+/* Ajuste de responsividade para celulares */
+@media (max-width: 768px) {
 
-/* Cores personalizadas para cada uma das 5 linhas */
-.sobre-weedoo div:nth-child(1) {
-    background-color: rgba(120, 71, 199, 0.08);  /* Um toque do roxo da sua logo */
-}
+    .pos-cards,
+    .sobre-weedoo,
+    .chamada-conexao {
+        padding: 30px 25px;
+        margin: 40px 20px;
+    }
 
-.sobre-weedoo div:nth-child(2) {
-    background-color: rgba(255, 255, 255, 0.03);  /* Cinza bem suave */
-}
-
-.sobre-weedoo div:nth-child(3) {
-    background-color: rgba(0, 0, 0, 0.2);          /* Fundo escuro para contraste */
-}
-
-.sobre-weedoo div:nth-child(4) {
-    background-color: rgba(55, 255, 20, 0.03);   /* Verde ciber-botânico de leve */
-}
-
-.sobre-weedoo div:nth-child(5) {
-    background-color: rgba(0, 0, 0, 0.1);          /* Fechamento mais escuro */
-}
-
-/* Estilização do background da caixa 'Mantenha-se Conectado*'*/
-/* Estilização do container pai */
-.chamada-conexao {
-    background-color: #0f3200a7;
-    border: solid rgba(66, 132, 21, 0.483);
-    border-radius: 8px;
-    overflow: hidden; /* IMPORTANTE: Garante que o fundo das linhas não "vaze" pelas pontas arredondadas */
-}
-
-/* Estilo comum para todas as divs internas (para dar um respiro) */
-.chamada-conexao div {
-    padding: 15px 20px;
-}
-
-/* Cores diferentes para cada linha */
-.chamada-conexao div:nth-child(1) {
-    background-color: rgba(55, 255, 20, 0.037); /* Verde Neon sutil */
-}
-
-.chamada-conexao div:nth-child(2) {
-    background-color: rgba(0, 0, 0, 0.2);      /* Preto translúcido */
-}
-
-.chamada-conexao div:nth-child(3) {
-    background-color: rgba(120, 71, 199, 0.1); /* Púrpura (seguindo sua logo) */
-}
-
-.chamada-conexao div:nth-child(4) {
-    background-color: rgba(55, 255, 20, 0.037); /* Cinza quase invisível */
+    .pos-cards h2,
+    .sobre-weedoo h3,
+    .chamada-conexao div:first-child p {
+        font-size: 1.4em;
+    }
 }
 
 /* Container Geral do FAQ */
@@ -405,7 +412,8 @@ p.texto-pequeno {
     font-weight: 600;
     color: #e7d8c1;
     cursor: pointer;
-    list-style: none; /* Remove a seta padrão no Chrome/Firefox */
+    list-style: none;
+    /* Remove a seta padrão no Chrome/Firefox */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -419,7 +427,8 @@ p.texto-pequeno {
 /* Pequeno sinal de "+" estilizado usando pseudo-elemento */
 .faq-container summary::after {
     content: '+';
-    color: #37ff145c; /* Seu verde neon translúcido */
+    color: #37ff145c;
+    /* Seu verde neon translúcido */
     font-size: 1.4em;
     transition: transform 0.3s ease;
 }
@@ -436,16 +445,64 @@ p.texto-pequeno {
 /* Gira o sinal de "+" para virar um "x" quando aberto */
 .faq-container details[open] summary::after {
     transform: rotate(45deg);
-    color: #37ff14; /* Verde neon total quando ativo */
+    color: #37ff14;
+    /* Verde neon total quando ativo */
 }
 
-/* Estilo do texto da resposta */
-.faq-container p {
+/* --- COMPORTAMENTO QUANDO ABERTO --- */
+
+/* Quando o card está aberto, muda a borda e o brilho */
+.faq-container details[open] {
+    border-color: rgba(55, 255, 20, 0.6);
+    box-shadow: 0 0 15px rgba(55, 255, 20, 0.05);
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Gira o sinal de "+" para virar um "x" quando aberto */
+.faq-container details[open] summary::after {
+    transform: rotate(45deg);
+    color: #37ff14;
+    /* Verde neon total quando ativo */
+}
+
+/* ==========================================
+   Estilo Base do Texto (Estado Fechado)
+   ========================================== */
+.faq-container details p {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    margin-top: 15px;
     color: #d0d0d0;
     line-height: 1.6;
     font-size: 0.95em;
+    margin-top: 0;
+    opacity: 0;
+    /* O PULO DO GATO: Força o navegador a esquecer a animação quando fechar */
+    animation: none;
+}
+
+/* ==========================================
+   Animação Blindada com Delay Embutido (Estado Aberto)
+   ========================================== */
+.faq-container details[open] p {
+    /* Tempo total: 0.55 segundos (0.15s invisível + 0.40s de movimento) */
+    animation: abrirFaq 0.55s ease-out forwards;
+}
+
+/* O Segredo: De 0% a 27% do tempo (exatos 0.15s), ele congela invisível. */
+@keyframes abrirFaq {
+
+    0%,
+    27% {
+        opacity: 0;
+        transform: translateY(-15px);
+        margin-top: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        margin-top: 15px;
+        /* Aplica o espaçamento de forma suave */
+    }
 }
 
 /* Rodapé em Profundidade */
@@ -474,21 +531,27 @@ footer a:hover {
 /* Ajuste de responsividade para telas de até 768px (Celulares e Tablets) */
 @media (max-width: 768px) {
     .chamada-conexao {
-        margin-left: 20px;  /* Afasta da margem esquerda */
-        margin-right: 20px; /* Afasta da margem direita */
-        width: auto;        /* O pulo do gato: desfaz o '100%' para a margem funcionar sem criar barra de rolagem lateral */
+        margin-left: 20px;
+        /* Afasta da margem esquerda */
+        margin-right: 20px;
+        /* Afasta da margem direita */
+        width: auto;
+        /* O pulo do gato: desfaz o '100%' para a margem funcionar sem criar barra de rolagem lateral */
     }
 }
 
 /* ==========================================================================
    CONTROLE DAS IMAGENS DOS CARDS (REGRA BLINDADA)
    ========================================================================== */
-   .services-grid .card-servico .img-card {
+.services-grid .card-servico .img-card {
     width: 100%;
-    max-width: 100%;   /* Trava o vazamento horizontal */
+    max-width: 100%;
+    /* Trava o vazamento horizontal */
     /* height: 220px;     Fixa a altura */
-    object-fit: cover; /* Corta sem amassar */
-    display: flex;    /* Comportamento seguro em flexbox */
+    object-fit: cover;
+    /* Corta sem amassar */
+    display: flex;
+    /* Comportamento seguro em flexbox */
     border-radius: 12px;
     margin-bottom: 20px;
     margin-top: 15px;
@@ -497,7 +560,383 @@ footer a:hover {
 /* Responsividade: Transforma a grade em 1 coluna (1x4) em telas de celular */
 @media (max-width: 768px) {
     .services-grid {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
         gap: 20px;
+    }
+}
+
+/* ==========================================================================
+   NOVA SEÇÃO: FORMULÁRIO DE AUDITORIA IA
+   ========================================================================== */
+.auditoria-ia {
+    margin: 60px auto;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.auditoria-ia h2 {
+    color: #ecf5b4;
+    margin-bottom: 10px;
+    font-size: 2.2em;
+}
+
+.auditoria-ia p {
+    color: #d0d0d0;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.form-auditoria {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-auditoria input {
+    flex: 1;
+    padding: 18px 25px;
+    border-radius: 50px;
+    border: 1px solid rgba(55, 255, 20, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-family: inherit;
+    font-size: 1em;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-auditoria input:focus {
+    border-color: #37ff14;
+    box-shadow: 0 0 15px rgba(55, 255, 20, 0.2);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.btn-auditoria {
+    background-color: #2b8d1a;
+    color: #e8d1b0;
+    border: none;
+    padding: 0 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.btn-auditoria:hover {
+    background-color: #fffb00;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 251, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .form-auditoria {
+        flex-direction: column;
+    }
+
+    .btn-auditoria {
+        padding: 18px 35px;
+    }
+}
+
+/* ==========================================================================
+   NOVA SEÇÃO: CTA DIAGNÓSTICO (Design Vidro & Neon)
+   ========================================================================== */
+.cta-diagnostico {
+    margin: 40px auto;
+    background: linear-gradient(135deg, #022c22 0%, #0f3d3e 100%);
+    border-radius: 32px;
+    padding: 50px 60px;
+    color: #ffffff;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1100px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.2em;
+    letter-spacing: 0.8px;   
+}
+
+/* Bolhas de Neon Flutuantes no Fundo (Background Decorations) */
+.cta-diagnostico::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: rgba(55, 255, 20, 0.15);
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.cta-diagnostico::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: rgba(37, 99, 235, 0.2);
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.cta-textos {
+    position: relative;
+    z-index: 10;
+    flex: 2;
+    text-align: left;
+}
+
+.cta-tag {
+    background: rgba(55, 255, 20, 0.15);
+    color: #37ff14;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 0.75em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    margin-bottom: 20px;
+    border: 1px solid rgba(55, 255, 20, 0.3);
+}
+
+.cta-textos h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: #bf7d1b;
+}
+
+.cta-textos p {
+    color: #dace91;
+    font-size: 1.05em;
+    line-height: 1.7;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.cta-botao-wrap {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-cta-diagnostico {
+    background-color: #1d9109;
+    color: #fff1a9f5;
+    font-weight: 700;
+    padding: 18px 36px;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(55, 255, 20, 0.3);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.btn-cta-diagnostico:hover {
+    background-color: #ffbf00;
+    transform: translateY(-4px);
+    box-shadow: 0 0 35px rgba(255, 251, 0, 0.5);
+    color: #022c22;
+}
+
+.icone-seta {
+    width: 22px;
+    height: 22px;
+}
+
+@media (max-width: 768px) {
+    .cta-diagnostico {
+        flex-direction: column;
+        padding: 40px 25px;
+        gap: 30px;
+    }
+
+    .cta-botao-wrap {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .btn-cta-diagnostico {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .cta-textos h3 {
+        font-size: 1.6em;
+    }
+}
+
+/* ==========================================================================
+   FORMULÁRIO, LOADING E RESULTADOS DA AUDITORIA
+   ========================================================================== */
+.input-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-grupo {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+}
+
+.dica-url {
+    color: #9afb898c;
+    margin-top: 10px;
+    font-size: 0.85em;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Animação de Carregamento */
+.loading-container {
+    display: none;
+    margin-top: 50px;
+}
+
+.spinner-neon {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(55, 255, 20, 0.1);
+    border-top: 4px solid #44b730;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 15px rgba(55, 255, 20, 0.4);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.pulse-text {
+    color: #3cbe25;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-top: 20px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Área de Resultados */
+.resultado-container {
+    display: none;
+    margin-top: 60px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(55, 255, 20, 0.2);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: left;
+}
+
+.resultado-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.resultado-tag {
+    background: rgba(55, 255, 20, 0.15);
+    color: #46c630;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 0.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.resultado-header h3 {
+    color: #fff;
+    margin-top: 15px;
+    font-size: 1.5em;
+}
+
+.cards-resultado {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card-nota {
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 3px solid #37ff14;
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card-nota:hover {
+    background: rgba(55, 255, 20, 0.05);
+    transform: translateY(-5px);
+}
+
+.card-nota h4 {
+    color: #e7d8c1;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.nota-circulo,
+.nota-texto {
+    font-size: 2.5em;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #36d21a;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(55, 255, 20, 0.3);
+}
+
+.card-nota p {
+    font-size: 0.85em;
+    color: #a0a0a0;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .input-grupo {
+        flex-direction: column;
+    }
+
+    .resultado-container {
+        padding: 25px;
     }
 }

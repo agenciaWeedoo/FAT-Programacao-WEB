@@ -1,0 +1,466 @@
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  WEEDOO — Widget de Diagnóstico SEO                         ║
+  ║  Versão: 1.0 | Gemini 2.5 Flash                             ║
+  ║                                                              ║
+  ║  COMO USAR NO WORDPRESS:                                     ║
+  ║  1. Edite a página /nossos-servicos/ no Gutenberg           ║
+  ║  2. Adicione um bloco "HTML Personalizado"                   ║
+  ║  3. Cole TODO o conteúdo deste arquivo                       ║
+  ║  4. Clique em "Visualizar" para testar                       ║
+  ║                                                              ║
+  ║  SEGURANÇA OBRIGATÓRIA antes de publicar:                   ║
+  ║  → Google Cloud Console > APIs & Services > Credentials     ║
+  ║  → Restrinja a chave a: weedoo.med.br                       ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<style>
+#weedoo-diag *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',system-ui,sans-serif}
+#weedoo-diag{
+  background:#071525;
+  border-radius:16px;
+  padding:2.5rem 2rem;
+  max-width:720px;
+  margin:2rem auto;
+  border:1px solid #1a3a5c;
+  color:#c8e0f4;
+}
+#weedoo-diag .wd-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#071f38;border:1px solid #1D9E75;
+  border-radius:99px;padding:5px 14px;
+  font-size:11px;color:#5DCAA5;letter-spacing:.06em;
+  text-transform:uppercase;margin-bottom:1.25rem;
+}
+#weedoo-diag .wd-pulse{
+  width:7px;height:7px;border-radius:50%;background:#1D9E75;
+  animation:wdpulse 1.8s infinite;
+}
+@keyframes wdpulse{0%,100%{opacity:1}50%{opacity:.35}}
+#weedoo-diag h2.wd-h{
+  font-size:26px;font-weight:800;color:#e8f4ff;
+  line-height:1.2;margin-bottom:.6rem;
+}
+#weedoo-diag h2.wd-h em{color:#1D9E75;font-style:normal}
+#weedoo-diag .wd-sub{
+  font-size:14px;color:#7a9abb;line-height:1.65;margin-bottom:1.75rem;
+}
+#weedoo-diag .wd-steps{
+  display:flex;gap:8px;margin-bottom:1.75rem;
+}
+#weedoo-diag .wd-step{
+  flex:1;text-align:center;padding:9px 6px;border-radius:8px;
+  font-size:12px;color:#2a5070;border:1px solid #112236;transition:.2s;
+}
+#weedoo-diag .wd-step.active{
+  background:#0d2b45;border-color:#1D9E75;
+  color:#5DCAA5;font-weight:700;
+}
+#weedoo-diag .wd-step-num{font-size:18px;display:block;margin-bottom:3px}
+#weedoo-diag label{
+  display:block;font-size:12px;color:#5a85a8;
+  margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;
+}
+#weedoo-diag select,
+#weedoo-diag input,
+#weedoo-diag textarea{
+  width:100%;background:#0d1f33;border:1px solid #1a3a5c;
+  border-radius:8px;padding:11px 13px;font-size:14px;
+  color:#c8e0f4;outline:none;transition:border .15s;
+  appearance:none;-webkit-appearance:none;
+}
+#weedoo-diag select:focus,
+#weedoo-diag input:focus,
+#weedoo-diag textarea:focus{border-color:#1D9E75;background:#0a1d30}
+#weedoo-diag textarea{min-height:110px;resize:vertical;line-height:1.6}
+#weedoo-diag .wd-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+@media(max-width:520px){#weedoo-diag .wd-row{grid-template-columns:1fr}}
+#weedoo-diag .wd-field{margin-bottom:14px}
+#weedoo-diag .wd-btn{
+  width:100%;padding:14px;border-radius:10px;border:none;
+  background:#1D9E75;color:#fff;font-size:15px;font-weight:700;
+  cursor:pointer;letter-spacing:.02em;transition:all .15s;
+  margin-top:6px;
+}
+#weedoo-diag .wd-btn:hover{background:#17835f}
+#weedoo-diag .wd-btn:disabled{opacity:.45;cursor:not-allowed}
+#weedoo-diag .wd-note{
+  font-size:12px;color:#2a5070;text-align:center;
+  margin-top:12px;line-height:1.5;
+}
+#weedoo-diag .wd-loading{
+  text-align:center;padding:2.5rem 0;display:none;
+}
+#weedoo-diag .wd-spinner{
+  width:40px;height:40px;border:3px solid #112236;
+  border-top-color:#1D9E75;border-radius:50%;
+  animation:wdspin .8s linear infinite;margin:0 auto 1rem;
+}
+@keyframes wdspin{to{transform:rotate(360deg)}}
+#weedoo-diag .wd-load-bar{
+  height:3px;background:#112236;border-radius:99px;
+  margin:1rem auto;max-width:300px;overflow:hidden;
+}
+#weedoo-diag .wd-load-fill{
+  height:100%;width:0;background:#1D9E75;border-radius:99px;
+}
+#weedoo-diag .wd-load-msg{font-size:13px;color:#5DCAA5;min-height:20px}
+#weedoo-diag .wd-result{display:none}
+#weedoo-diag .wd-score-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.25rem;
+}
+@media(max-width:400px){#weedoo-diag .wd-score-grid{grid-template-columns:1fr}}
+#weedoo-diag .wd-score-card{
+  background:#0d1f33;border:1px solid #1a3a5c;
+  border-radius:10px;padding:1rem;text-align:center;
+}
+#weedoo-diag .wd-score-num{font-size:30px;font-weight:800;line-height:1}
+#weedoo-diag .wd-score-num.ok{color:#1D9E75}
+#weedoo-diag .wd-score-num.warn{color:#EF9F27}
+#weedoo-diag .wd-score-num.bad{color:#D85A30}
+#weedoo-diag .wd-score-lbl{font-size:11px;color:#4a7090;margin-top:5px;text-transform:uppercase;letter-spacing:.04em}
+#weedoo-diag .wd-findings-box{
+  background:#0a1525;border:1px solid #1a3a5c;
+  border-radius:12px;padding:1.25rem;margin-bottom:1.25rem;
+}
+#weedoo-diag .wd-findings-title{
+  font-size:11px;color:#5a85a8;font-weight:700;
+  margin-bottom:1rem;text-transform:uppercase;letter-spacing:.06em;
+  border-bottom:1px solid #112236;padding-bottom:8px;
+}
+#weedoo-diag .wd-finding{
+  display:flex;gap:10px;margin-bottom:10px;
+  font-size:13px;line-height:1.55;color:#8ab0cc;
+  padding-bottom:10px;border-bottom:1px solid #0d1f33;
+}
+#weedoo-diag .wd-finding:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+#weedoo-diag .wd-icon{
+  flex-shrink:0;width:20px;height:20px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;margin-top:1px;
+}
+#weedoo-diag .wd-icon.ok{background:#071a12;color:#1D9E75;border:1px solid #0F6E56}
+#weedoo-diag .wd-icon.warn{background:#1f1200;color:#EF9F27;border:1px solid #854F0B}
+#weedoo-diag .wd-icon.bad{background:#1a0800;color:#D85A30;border:1px solid #993C1D}
+#weedoo-diag .wd-cta{
+  background:linear-gradient(135deg,#0d2b1e 0%,#071525 100%);
+  border:1px solid #1D9E75;border-radius:14px;
+  padding:1.5rem;text-align:center;
+}
+#weedoo-diag .wd-cta-title{
+  font-size:17px;font-weight:800;color:#e8f4ff;margin-bottom:.5rem;
+}
+#weedoo-diag .wd-cta-sub{
+  font-size:13px;color:#5a8a6a;margin-bottom:1.25rem;line-height:1.6;
+}
+#weedoo-diag .wd-cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+#weedoo-diag .wd-cta-primary{
+  padding:12px 22px;border-radius:8px;border:none;
+  background:#1D9E75;color:#fff;font-size:14px;
+  font-weight:700;cursor:pointer;transition:all .15s;text-decoration:none;
+  display:inline-block;
+}
+#weedoo-diag .wd-cta-primary:hover{background:#17835f}
+#weedoo-diag .wd-cta-sec{
+  padding:12px 22px;border-radius:8px;
+  border:1px solid #1D9E75;background:transparent;
+  color:#5DCAA5;font-size:14px;font-weight:600;
+  cursor:pointer;transition:all .15s;text-decoration:none;
+  display:inline-block;
+}
+#weedoo-diag .wd-cta-sec:hover{background:#071f38}
+#weedoo-diag .wd-restart{
+  font-size:12px;color:#2a5070;text-align:center;
+  margin-top:1rem;cursor:pointer;
+}
+#weedoo-diag .wd-restart:hover{color:#5DCAA5;text-decoration:underline}
+#weedoo-diag .wd-error{
+  background:#1a0800;border:1px solid #993C1D;
+  border-radius:10px;padding:1rem;text-align:center;
+  font-size:13px;color:#D85A30;margin-top:1rem;display:none;
+}
+</style>
+
+<div id="weedoo-diag" role="region" aria-label="Diagnóstico SEO gratuito da Agência Weedoo">
+
+  <div class="wd-badge">
+    <span class="wd-pulse" aria-hidden="true"></span>
+    Diagnóstico gratuito com IA
+  </div>
+
+  <h2 class="wd-h">Seu site está <em>invisível</em><br>para o Google AI Search?</h2>
+  <p class="wd-sub">
+    Cole um trecho do seu site e receba um diagnóstico de SEO em menos de 30 segundos
+    — baseado nas premissas de E-E-A-T e AI Overviews do Google 2025.
+    Sem cadastro, sem compromisso.
+  </p>
+
+  <div class="wd-steps" role="list" aria-label="Etapas do diagnóstico">
+    <div class="wd-step active" id="wdstep1" role="listitem">
+      <span class="wd-step-num">1</span>Seus dados
+    </div>
+    <div class="wd-step" id="wdstep2" role="listitem">
+      <span class="wd-step-num">2</span>Análise IA
+    </div>
+    <div class="wd-step" id="wdstep3" role="listitem">
+      <span class="wd-step-num">3</span>Resultado
+    </div>
+  </div>
+
+  <!-- FORMULÁRIO -->
+  <div id="wdform">
+    <div class="wd-row">
+      <div class="wd-field">
+        <label for="wd-segment">Segmento do seu negócio</label>
+        <select id="wd-segment">
+          <option value="clínica de cannabis medicinal">Clínica de Cannabis Medicinal</option>
+          <option value="clínica médica especializada">Clínica Médica Especializada</option>
+          <option value="médico prescritor de cannabis">Médico Prescritor</option>
+          <option value="farmácia magistral com cannabis">Farmácia / Magistral</option>
+          <option value="empresa do setor canábico">Empresa do Setor Canábico</option>
+          <option value="clínica de saúde integrativa">Saúde Integrativa / Holística</option>
+          <option value="telemedicina">Telemedicina</option>
+        </select>
+      </div>
+      <div class="wd-field">
+        <label for="wd-goal">Principal objetivo no Google</label>
+        <select id="wd-goal">
+          <option value="aparecer no Google e atrair pacientes qualificados organicamente">Atrair pacientes via SEO</option>
+          <option value="melhorar o conteúdo para E-E-A-T e autoridade médica">Autoridade de conteúdo</option>
+          <option value="garantir conformidade com normas CFM no digital">Conformidade CFM</option>
+          <option value="gerar mais leads e consultas pelo site">Gerar mais leads</option>
+          <option value="aparecer nas respostas de IA do Google (AI Overviews)">Aparecer no AI Overviews</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="wd-field">
+      <label for="wd-content">
+        Cole um trecho do seu site (qualquer página)
+      </label>
+      <textarea
+        id="wd-content"
+        placeholder="Cole aqui o texto da sua página principal, página de serviços, ou qualquer conteúdo do seu site. Quanto mais detalhado, mais preciso o diagnóstico..."
+        aria-required="true"
+      ></textarea>
+    </div>
+
+    <button class="wd-btn" id="wdbtn" onclick="wdRun()">
+      Analisar meu site agora — grátis
+    </button>
+    <div id="wderror" class="wd-error" role="alert">
+      Não foi possível conectar ao serviço de análise. Tente novamente em instantes.
+    </div>
+    <p class="wd-note">
+      🔒 Seus dados não são armazenados · Resultado em &lt;30 segundos · Sem spam
+    </p>
+  </div>
+
+  <!-- LOADING -->
+  <div id="wdloading" class="wd-loading" aria-live="polite">
+    <div class="wd-spinner" aria-hidden="true"></div>
+    <div class="wd-load-msg" id="wdloadmsg">Inicializando diagnóstico SEO...</div>
+    <div class="wd-load-bar"><div class="wd-load-fill" id="wdloadfill"></div></div>
+    <div style="font-size:11px;color:#2a5070;margin-top:6px">
+      Verificando E-E-A-T · Conformidade CFM · Entidades semânticas · AI Overviews
+    </div>
+  </div>
+
+  <!-- RESULTADO -->
+  <div id="wdresult" class="wd-result" aria-live="polite">
+    <div class="wd-score-grid" id="wdscores"></div>
+    <div class="wd-findings-box">
+      <div class="wd-findings-title">Diagnóstico detalhado do seu conteúdo</div>
+      <div id="wdfindings"></div>
+    </div>
+    <div class="wd-cta">
+      <div class="wd-cta-title">Quer o diagnóstico completo do seu site?</div>
+      <div class="wd-cta-sub">
+        Esta foi uma análise inicial. A Weedoo realiza auditorias técnicas profundas com
+        relatório de 30+ pontos, roadmap de SEO personalizado e revisão de conformidade
+        CFM por especialista com 6 anos no mercado médico-canábico.
+      </div>
+      <div class="wd-cta-btns">
+        <a
+          class="wd-cta-primary"
+          href="https://api.whatsapp.com/send?phone=5511942865210&text=Ol%C3%A1%21%20Fiz%20o%20diagn%C3%B3stico%20gratuito%20do%20meu%20site%20e%20quero%20saber%20sobre%20a%20auditoria%20completa%20da%20Weedoo."
+          target="_blank"
+          rel="noopener"
+          aria-label="Falar com especialista Weedoo via WhatsApp"
+        >
+          Falar com especialista
+        </a>
+        <a
+          class="wd-cta-sec"
+          href="/nossos-servicos/"
+          aria-label="Ver todos os serviços da Weedoo"
+        >
+          Ver nossos serviços
+        </a>
+      </div>
+    </div>
+    <p class="wd-restart" onclick="wdRestart()" role="button" tabindex="0">
+      ↩ Analisar outro conteúdo
+    </p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var KEY = "AIzaSyCMRTl2_jQonxXIh2E5_ZCHsfppAKJ-vZc";
+  var MODELS = ["gemini-2.5-flash","gemini-2.0-flash","gemini-2.0-flash-lite"];
+
+  var SYSTEM = "Você é um Especialista Sênior em SEO e Marketing Médico da Agência Weedoo (weedoo.med.br), especializado no nicho de cannabis medicinal e saúde digital no Brasil.\n\nAnalise o conteúdo de site enviado e gere um diagnóstico SEO objetivo, prático e específico para o segmento médico/canábico brasileiro.\n\nRESPONDA SOMENTE EM JSON VÁLIDO — sem markdown, sem texto antes ou depois do JSON.\n\nFORMATO OBRIGATÓRIO:\n{\n  \"scores\": {\n    \"eeat\": <0-100>,\n    \"seo_tecnico\": <0-100>,\n    \"cfm\": <0-100>\n  },\n  \"findings\": [\n    {\"tipo\": \"ok|warn|bad\", \"texto\": \"<achado específico em 1-2 linhas>\"},\n    {\"tipo\": \"ok|warn|bad\", \"texto\": \"...\"},\n    {\"tipo\": \"ok|warn|bad\", \"texto\": \"...\"},\n    {\"tipo\": \"ok|warn|bad\", \"texto\": \"...\"},\n    {\"tipo\": \"ok|warn|bad\", \"texto\": \"...\"}\n  ]\n}\n\nREGRAS:\n- eeat: avalie Experience, Expertise, Authoritativeness, Trustworthiness — sinais concretos como nome do especialista, CRM, anos de experiência, dados de casos\n- seo_tecnico: intenção de busca atendida, headings semânticos, cobertura de query fan-out, ausência de keyword stuffing\n- cfm: conformidade com Resolução CFM 2336/2023 — proibido: antes/depois, % de resultado, garantias de cura, auto-elogio excessivo, captação antiética\n- findings: 5 achados reais baseados no conteúdo — seja ESPECÍFICO, não genérico\n- Se o conteúdo for muito vago, informe isso em um finding bad e avalie com base no segmento declarado";
+
+  var MSGS = [
+    "Iniciando análise semântica...",
+    "Verificando sinais de E-E-A-T...",
+    "Checando conformidade CFM 2336/2023...",
+    "Consultando premissas Google AI Search 2025...",
+    "Gerando diagnóstico personalizado..."
+  ];
+
+  var msgT, msgI = 0, fillT;
+
+  function setStep(n) {
+    for (var i = 1; i <= 3; i++) {
+      var el = document.getElementById("wdstep" + i);
+      if (el) el.className = "wd-step" + (i === n ? " active" : "");
+    }
+  }
+
+  function startLoad() {
+    msgI = 0;
+    var msg = document.getElementById("wdloadmsg");
+    var fill = document.getElementById("wdloadfill");
+    if (msg) msg.textContent = MSGS[0];
+    if (fill) { fill.style.transition = "none"; fill.style.width = "0"; }
+    setTimeout(function() {
+      if (fill) { fill.style.transition = "width 5s ease"; fill.style.width = "88%"; }
+    }, 50);
+    msgT = setInterval(function() {
+      msgI = (msgI + 1) % MSGS.length;
+      if (msg) msg.textContent = MSGS[msgI];
+    }, 1100);
+  }
+
+  function stopLoad() { clearInterval(msgT); }
+
+  function scoreCls(v) {
+    return v >= 70 ? "ok" : v >= 45 ? "warn" : "bad";
+  }
+
+  function renderResult(data) {
+    var s = data.scores || {};
+    var scores = [
+      { label: "E-E-A-T", val: Math.round(s.eeat || 50) },
+      { label: "SEO Técnico", val: Math.round(s.seo_tecnico || 50) },
+      { label: "Conformidade CFM", val: Math.round(s.cfm || 50) }
+    ];
+    var scoreHTML = scores.map(function(sc) {
+      return '<div class="wd-score-card"><div class="wd-score-num ' + scoreCls(sc.val) + '">' +
+        sc.val + '</div><div class="wd-score-lbl">' + sc.label + '</div></div>';
+    }).join("");
+    document.getElementById("wdscores").innerHTML = scoreHTML;
+
+    var icons = { ok: "✓", warn: "!", bad: "✗" };
+    var findHTML = (data.findings || []).map(function(f) {
+      var t = f.tipo || "warn";
+      return '<div class="wd-finding"><div class="wd-icon ' + t + '" aria-hidden="true">' +
+        (icons[t] || "!") + '</div><span>' + f.texto + '</span></div>';
+    }).join("");
+    document.getElementById("wdfindings").innerHTML = findHTML;
+  }
+
+  function fallback() {
+    return {
+      scores: { eeat: 42, seo_tecnico: 35, cfm: 55 },
+      findings: [
+        { tipo: "bad", texto: "Serviço temporariamente indisponível. Tente novamente em instantes ou entre em contato conosco diretamente." },
+        { tipo: "warn", texto: "Dica geral: inclua o nome e CRM do médico responsável em todas as páginas de serviço — é um sinal E-E-A-T essencial." },
+        { tipo: "warn", texto: "Evite termos como 'melhor clínica' ou 'resultados garantidos' — são proibidos pela Resolução CFM 2336/2023." },
+        { tipo: "ok", texto: "Segmentar o conteúdo por patologia tratada (dor crônica, epilepsia, ansiedade) melhora significativamente o ranqueamento." },
+        { tipo: "bad", texto: "Sites do setor canábico costumam ter E-E-A-T abaixo da média — isso é uma oportunidade de diferenciação que a Weedoo pode explorar." }
+      ]
+    };
+  }
+
+  async function callGemini(prompt) {
+    for (var mi = 0; mi < MODELS.length; mi++) {
+      try {
+        var url = "https://generativelanguage.googleapis.com/v1beta/models/" +
+          MODELS[mi] + ":generateContent?key=" + KEY;
+        var res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            system_instruction: { parts: [{ text: SYSTEM }] },
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: { maxOutputTokens: 700, temperature: 0.3 }
+          })
+        });
+        var data = await res.json();
+        if (data.error) continue;
+        var txt = data.candidates &&
+          data.candidates[0] &&
+          data.candidates[0].content &&
+          data.candidates[0].content.parts &&
+          data.candidates[0].content.parts[0] &&
+          data.candidates[0].content.parts[0].text;
+        if (txt) return txt;
+      } catch(e) { continue; }
+    }
+    return null;
+  }
+
+  window.wdRun = async function() {
+    var content = document.getElementById("wd-content").value.trim();
+    var segment = document.getElementById("wd-segment").value;
+    var goal = document.getElementById("wd-goal").value;
+
+    document.getElementById("wderror").style.display = "none";
+
+    var prompt = "SEGMENTO: " + segment + "\nOBJETIVO: " + goal +
+      "\n\nCONTEÚDO DO SITE:\n" +
+      (content || "(nenhum conteúdo fornecido — analise com base no segmento e objetivo declarados, gerando achados educativos sobre o nicho)");
+
+    var btn = document.getElementById("wdbtn");
+    btn.disabled = true;
+    btn.textContent = "Analisando...";
+
+    document.getElementById("wdform").style.display = "none";
+    document.getElementById("wdloading").style.display = "block";
+    document.getElementById("wdresult").style.display = "none";
+    setStep(2);
+    startLoad();
+
+    var raw = await callGemini(prompt);
+    stopLoad();
+
+    var parsed;
+    try {
+      var clean = raw.replace(/```json|```/g, "").trim();
+      parsed = JSON.parse(clean);
+    } catch(e) {
+      parsed = fallback();
+    }
+
+    renderResult(parsed);
+
+    document.getElementById("wdloading").style.display = "none";
+    document.getElementById("wdresult").style.display = "block";
+    setStep(3);
+    btn.disabled = false;
+    btn.textContent = "Analisar meu site agora — grátis";
+  };
+
+  window.wdRestart = function() {
+    document.getElementById("wdresult").style.display = "none";
+    document.getElementById("wdform").style.display = "block";
+    setStep(1);
+    document.getElementById("wd-content").value = "";
+  };
+
+})();
+</script>
